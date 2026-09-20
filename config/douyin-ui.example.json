@@ -1,0 +1,21 @@
+{
+  "evidence": "reference_candidates_not_live_verified",
+  "uploadUrl": "https://creator.douyin.com/creator-micro/content/post/video",
+  "timeoutMs": 30000,
+  "uploadTimeoutMs": 1200000,
+  "identity": { "selector": "REPLACE_ACCOUNT_IDENTIFIER_LOCATOR" },
+  "uploadInput": "input[type=\"file\"][accept*=\"video\"]",
+  "uploadComplete": "REPLACE_CURRENT_FILE_UPLOAD_COMPLETE_LOCATOR",
+  "titleInput": "REPLACE_TITLE_INPUT_LOCATOR",
+  "taskOpen": "text=\"星图任务\"",
+  "taskDialog": "REPLACE_TASK_DIALOG_LOCATOR",
+  "taskSearch": "input[placeholder=\"输入任务id/任务名称\"]",
+  "taskRow": "REPLACE_TASK_ROW_LOCATOR_WITH_{taskId}",
+  "taskIdentity": { "selector": "REPLACE_TASK_ID_WITHIN_ROW" },
+  "taskSelect": "input[type=\"radio\"]",
+  "taskConfirm": "text=\"确定\"",
+  "selectedTask": { "selector": "REPLACE_BOUND_TASK_ID_LOCATOR" },
+  "publishButton": "role=button[name=\"发布\"s]",
+  "success": "REPLACE_NEW_SUBMISSION_SUCCESS_LOCATOR",
+  "receipt": { "selector": "REPLACE_NEW_SUBMISSION_ID_LOCATOR" }
+}

@@ -1,0 +1,17 @@
+{
+  "mode": "simulation",
+  "operatorId": "operator-a",
+  "root": "D:/douyin-materials",
+  "allowNetwork": false,
+  "minFileAgeSeconds": 60,
+  "tagPrefix": "#",
+  "authDataDir": "D:/CodexProject/tiktok_ai/data/workbench-auth",
+  "uiFile": "D:/CodexProject/tiktok_ai/config/workbench-task-ui.local.json",
+  "editors": [{"id": "fzq", "folder": "剪辑师一"}],
+  "accounts": [
+    {"id": "koc-a-1", "expectedIdentity": "填写真实抖音号1", "operatorId": "operator-a", "koc": "佳佳", "editor": "fzq", "enabled": true},
+    {"id": "koc-a-2", "expectedIdentity": "填写真实抖音号2", "operatorId": "operator-a", "koc": "佳佳", "editor": "fzq", "enabled": true}
+  ],
+  "copies": [{"id": "copy-1", "text": "替换为客户批准的正式发布文案", "enabled": true}],
+  "tasks": [{"id": "REPLACE_TASK_ID", "name": "替换为正式任务名称", "enabled": false}]
+}

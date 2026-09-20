@@ -1,0 +1,36 @@
+{
+  "name": "douyin-multi-account-demo",
+  "version": "0.1.0",
+  "private": true,
+  "main": "src/desktop/main.mjs",
+  "description": "Local Douyin publishing workbench - single operator pilot",
+  "author": "Local Workbench",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "npm@11.6.1",
+  "scripts": {
+    "desktop": "electron .",
+    "desktop:runtime": "node scripts/prepare-desktop-runtime.mjs",
+    "desktop:pack": "npm run desktop:runtime && electron-builder --win dir --config electron-builder.json",
+    "desktop:build": "npm run desktop:runtime && electron-builder --win nsis --config electron-builder.json",
+    "workbench:ordinary": "node src/ordinary-workbench-main.mjs",
+    "workbench:demo": "node src/v3/main.mjs --demo",
+    "workbench": "node src/v3/main.mjs",
+    "test:v3": "node --test --test-isolation=none tests/v3/*.test.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:browser": "node --test tests/browser/*.test.mjs",
+    "demo": "node src/demo.mjs",
+    "start": "node src/cli.mjs",
+    "plan": "node src/cli.mjs plan",
+    "report": "node src/cli.mjs report"
+  },
+  "dependencies": {
+    "playwright": "1.62.1"
+  },
+  "devDependencies": {
+    "electron": "44.4.1",
+    "electron-builder": "26.15.3"
+  }
+}

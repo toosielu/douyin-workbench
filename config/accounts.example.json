@@ -1,0 +1,33 @@
+{
+  "dataDir": "../data",
+  "uiFile": "./douyin-ui.local.json",
+  "dailyTarget": 9,
+  "maxAttemptsPerDay": 18,
+  "minFileAgeSeconds": 60,
+  "intervalSeconds": 60,
+  "browser": { "headless": false },
+  "accounts": [
+    {
+      "id": "account-a",
+      "expectedIdentity": "抖音号：替换为账号A的完整标识",
+      "materialDir": "../materials/koc-a/product-a",
+      "titleTemplate": "{filename}",
+      "tasks": [
+        { "id": "REPLACE_TASK_1", "name": "替换为真实任务1名称" },
+        { "id": "REPLACE_TASK_2", "name": "替换为真实任务2名称" },
+        { "id": "REPLACE_TASK_3", "name": "替换为真实任务3名称" }
+      ]
+    },
+    {
+      "id": "account-b",
+      "expectedIdentity": "抖音号：替换为账号B的完整标识",
+      "materialDir": "../materials/koc-a/product-a",
+      "titleTemplate": "{filename}",
+      "tasks": [
+        { "id": "REPLACE_TASK_1", "name": "替换为真实任务1名称" },
+        { "id": "REPLACE_TASK_2", "name": "替换为真实任务2名称" },
+        { "id": "REPLACE_TASK_3", "name": "替换为真实任务3名称" }
+      ]
+    }
+  ]
+}

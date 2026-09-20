@@ -1,0 +1,32 @@
+{
+  "simulation": false,
+  "headless": false,
+  "intervalSeconds": 15,
+  "timeoutSeconds": 600,
+  "accounts": [
+    {
+      "account": "account-a",
+      "videos": [
+        {
+          "file": "../materials/account-a/demo.mp4",
+          "title": "账号A的测试作品",
+          "description": "请替换为实际作品简介",
+          "tags": [],
+          "declaration": null
+        }
+      ]
+    },
+    {
+      "account": "account-b",
+      "videos": [
+        {
+          "file": "../materials/account-b/demo.mp4",
+          "title": "账号B的测试作品",
+          "description": "请替换为实际作品简介",
+          "tags": [],
+          "declaration": null
+        }
+      ]
+    }
+  ]
+}

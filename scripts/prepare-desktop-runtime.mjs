@@ -1,0 +1,22 @@
+import {execFileSync} from 'node:child_process';
+import {mkdir,cp,readdir,writeFile,access} from 'node:fs/promises';
+import path from 'node:path';
+import {chromium} from 'playwright';
+
+if(process.platform!=='win32'||process.arch!=='x64')throw Error('安装包当前仅支持 Windows x64 构建');
+const root=path.resolve('desktop-runtime'),pythonDir=path.join(root,'python');
+const info=JSON.parse(execFileSync(process.env.DOUYIN_PYTHON??'python',['-c','import sys,json;print(json.dumps({"root":sys.base_prefix,"major":sys.version_info.major,"minor":sys.version_info.minor}))'],{encoding:'utf8',windowsHide:true}));
+if(info.major!==3||info.minor<10)throw Error('构建需要 Python 3.10 或以上');
+await mkdir(pythonDir,{recursive:true});
+const files=await readdir(info.root);
+for(const file of files.filter(f=>/^(python.*\.(exe|dll)|vcruntime.*\.dll|LICENSE\.txt)$/i.test(f)))await cp(path.join(info.root,file),path.join(pythonDir,file));
+for(const directory of ['Lib','DLLs'])await cp(path.join(info.root,directory),path.join(pythonDir,directory),{recursive:true,filter:source=>!source.split(path.sep).some(p=>['site-packages','__pycache__','test','tests','idlelib','tkinter','turtledemo'].includes(p))});
+await writeFile(path.join(pythonDir,`python${info.major}${info.minor}._pth`),'Lib\nDLLs\n.\n','utf8');
+execFileSync(path.join(pythonDir,'python.exe'),['-I','-c','import json,zipfile,xml.etree.ElementTree;print("Excel runtime ready")'],{stdio:'inherit',windowsHide:true});
+const executable=chromium.executablePath();await access(executable);
+const browserRoot=path.dirname(path.dirname(executable));
+if(!/^chromium-\d+$/.test(path.basename(browserRoot)))throw Error('无法识别 Playwright Chromium 目录，请运行 npx playwright install chromium');
+await mkdir(path.join(root,'browsers'),{recursive:true});
+await cp(browserRoot,path.join(root,'browsers',path.basename(browserRoot)),{recursive:true});
+await writeFile(path.join(root,'manifest.json'),JSON.stringify({python:`${info.major}.${info.minor}`,browser:path.basename(browserRoot),builtAt:new Date().toISOString()},null,2)+'\n','utf8');
+console.log('运行依赖已准备；仅包含 Python 标准库与 Chromium，不包含本机账号资料。');

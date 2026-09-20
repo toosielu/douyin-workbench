@@ -1,0 +1,12 @@
+{
+  "appId": "local.douyin.workbench",
+  "productName": "DouyinWorkbench",
+  "directories": {"output": "dist/desktop"},
+  "asar": false,
+  "npmRebuild": false,
+  "files": ["src/**/*", "package.json", "!src/**/public/*.map"],
+  "extraResources": [{"from": "desktop-runtime", "to": "runtime", "filter": ["**/*"]}],
+  "win": {"target": [{"target": "nsis", "arch": ["x64"]}], "signAndEditExecutable": false},
+  "nsis": {"oneClick": false, "perMachine": false, "allowToChangeInstallationDirectory": true, "deleteAppDataOnUninstall": false, "createDesktopShortcut": true, "shortcutName": "抖音发布工作台"},
+  "artifactName": "DouyinWorkbench-${version}-${arch}-Setup.${ext}"
+}

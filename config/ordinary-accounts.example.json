@@ -1,0 +1,27 @@
+{
+  "dataDir": "../data/ordinary-production",
+  "uiFile": "./ordinary-ui.local.json",
+  "dailyTarget": 9,
+  "maxAttemptsPerDay": 18,
+  "minFileAgeSeconds": 60,
+  "intervalSeconds": 30,
+  "browser": { "headless": false },
+  "accounts": [
+    {
+      "id": "account-a",
+      "mode": "ordinary",
+      "expectedIdentity": "REPLACE_DOUYIN_ID_A",
+      "materialDir": "../materials/koc-a",
+      "titleTemplate": "{filename}",
+      "tasks": []
+    },
+    {
+      "id": "account-b",
+      "mode": "ordinary",
+      "expectedIdentity": "REPLACE_DOUYIN_ID_B",
+      "materialDir": "../materials/koc-a",
+      "titleTemplate": "{filename}",
+      "tasks": []
+    }
+  ]
+}

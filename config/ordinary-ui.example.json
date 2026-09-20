@@ -1,0 +1,17 @@
+{
+  "evidence": "live_verified",
+  "uploadUrl": "https://creator.douyin.com/creator-micro/content/post/video",
+  "timeoutMs": 60000,
+  "uploadTimeoutMs": 1200000,
+  "identity": {
+    "url": "https://creator.douyin.com/creator-micro/home",
+    "selector": "div.unique_id-EuH8eA:visible",
+    "pattern": "^抖音号\\s*[:：]\\s*(\\S+)\\s*$"
+  },
+  "uploadInput": "input[type=\"file\"][accept*=\"video\"]",
+  "uploadComplete": "div.text-JK4gL5:has-text(\"重新上传\")",
+  "titleInput": "input[placeholder=\"填写作品标题，为作品获得更多流量\"]",
+  "publishButton": "role=button[name=\"发布\"s]",
+  "publication": { "visibilityLabel":"公开", "scheduleLabel":"立即发布", "crossPostLabel":"不同时发布" },
+  "receipt": { "kind":"network", "url":"https://creator.douyin.com/web/api/media/aweme/create_v2/" }
+}
